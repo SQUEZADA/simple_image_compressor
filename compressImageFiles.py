@@ -20,10 +20,6 @@ def compress_image(input_path, output_path, quality):
         img.save(output_path, optimize=True, quality=quality)
     print(f"Compressed image saved at {output_path}")
 
-# input_file = f'/Users/admin/Desktop/omg/trueque_directus_files/pexels-anna-shvets-4587979.jpg'
-# # pexels-anna-shvets-4587979.jpg A6CFF087-E6E9-4E33-A191-735A190F5C8D.jpeg
-# output_file = f'/Users/admin/Desktop/omg/trueque_directus_files/compress/image0.webp'
-# compress_image(input_file, output_file, quality=60)
 # Example usage
 images = open("directus_files 20230329-155710.json", "r")
 for x in images:
@@ -32,8 +28,8 @@ for x in images:
   imageCount = 0
   for y in fileInfo:
     if fileTypes.count( y["type"] ):
-        input_file = f'/Users/admin/Desktop/omg/trueque_directus_files/{y["filename_download"]}'
-        output_file = f'/Users/admin/Desktop/omg/trueque_directus_files/compress/image{imageCount}.webp'
+        input_file = f'/{y["filename_download"]}'
+        output_file = f'/compress/image{imageCount}.webp'
         compress_image(input_file, output_file, quality=60)
         imageCount+=1
 images.close()
